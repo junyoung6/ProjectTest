@@ -1,0 +1,87 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.project'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//implementation 'org.springframework.boot:spring-boot-starter'
+	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// Web 의존성
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// Test 의존성
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// JSP 관련 의존성 (필요시)
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'jakarta.servlet:jakarta.servlet-api'
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+
+	// Validation 의존성
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+	implementation 'jakarta.validation:jakarta.validation-api:3.1.0'
+
+	// JDBC 의존성 (MySQL Connector)
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// JPA 의존성 (MySQL을 JPA로 사용할 경우)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Spring Boot Web Starter
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Spring Boot Security Starter
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// JJWT 라이브러리 (JWT 토큰 처리)
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	// Spring Boot Data JPA (JPA 사용 시)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Spring Boot Thymeleaf Starter (템플릿 엔진 사용 시)
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// H2 데이터베이스 (예시용)
+	runtimeOnly 'com.h2database:h2'
+
+	// Spring Boot Validation Starter
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>메인 페이지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>메인 페이지</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>회원 페이지와 회원 가입으로 이동</h2>
+
+        <!-- 회원 페이지 버튼 -->
+        <form action="/restricted" method="GET">
+            <button class="form-button" type="submit">회원 페이지</button>
+        </form>
+
+        <!-- 회원 가입 버튼 -->
+        <form action="/terms" method="GET">
+            <button class="form-button" type="submit">회원 가입</button>
+        </form>
+    </div>
+
+</body>
+</html>
